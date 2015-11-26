@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="adote" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/adote" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="include" />
+				</Compiler>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="adote.cpp" />
+		<Unit filename="include/Adote.h" />
+		<Unit filename="include/Criança.h" />
+		<Unit filename="include/Familia.h" />
+		<Unit filename="include/Juiz.h" />
+		<Unit filename="include/ListaCriancas.h" />
+		<Unit filename="include/Orfanato.h" />
+		<Unit filename="include/Pais.h" />
+		<Unit filename="include/Session.h" />
+		<Unit filename="include/User.h" />
+		<Unit filename="src/Adote.cpp" />
+		<Unit filename="src/Criança.cpp" />
+		<Unit filename="src/Familia.cpp" />
+		<Unit filename="src/Juiz.cpp" />
+		<Unit filename="src/ListaCriancas.cpp" />
+		<Unit filename="src/Orfanato.cpp" />
+		<Unit filename="src/Pais.cpp" />
+		<Unit filename="src/Session.cpp" />
+		<Unit filename="src/User.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
