@@ -10,8 +10,8 @@ class Criança : public Wt::WContainerWidget
         virtual ~Criança();
 
     private:
-        Wt::WText *nome;
-        Wt::WText *sexo;
+        std::string *nome;
+        std::string *sexo;
         int idade;
 
         Wt::WLineEdit *name;

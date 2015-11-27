@@ -21,7 +21,6 @@ class Juiz : public Wt::WContainerWidget
         void adicionarFamilia();
         void excluirFamilia();
         void buscarCriança();
-        void decretarAdocao(Familia* familia, Crianca* crianca);
 };
 
 #endif // JUIZ_H

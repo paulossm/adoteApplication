@@ -12,8 +12,8 @@ class Orfanato : public Wt::WContainerWidget
         virtual ~Orfanato();
 
     private:
-
         Wt::WText *nome;
+
         struct Endereco {
             Wt::WText *estado;
             Wt::WText *cidade;
@@ -22,19 +22,21 @@ class Orfanato : public Wt::WContainerWidget
             int numero;
         };
 
-        struct ListaCriancas {
-            Criança *crianca;
-            struct ListaCriancas *proximo;
-        };
+        ListaCriancas *minhasCriancas;
 
-        void listarCriancas();
-        void removerCrianca();
-        void adicionarCrianca();
-        void removerCrianca();
         void registrarAdoção(Criança *criança, Familia *pais);
 
         void salvarDados();
         void atualizarDados();
+
+    protected:
+        Wt::WLineEdit *nome_;
+        Wt::WLineEdit *estado_;
+        Wt::WLineEdit *cidade_;
+        Wt::WLineEdit *bairro_;
+        Wt::WLineEdit *rua_;
+        Wt::WLineEdit *numero_;
+
 };
 
 #endif // ORFANATO_H

@@ -8,9 +8,14 @@ class ListaCriancas
     public:
         ListaCriancas();
         virtual ~ListaCriancas();
+
     private:
         Criança *crianca;
         ListaCriancas *proximo;
+
+        void listarCriancas();
+        void removerCrianca();
+        void adicionarCrianca();
 };
 
 #endif // LISTACRIANCAS_H
