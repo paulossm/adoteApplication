@@ -2,25 +2,24 @@
 #define JUIZ_H
 
 #include <Wt/WContainerWidget>
-#include "Orfanato.h"
+
 #include "Criança.h"
 #include "Familia.h"
 
 class Juiz : public Wt::WContainerWidget
 {
     public:
-        Juiz(const std::string &name, Wt::WContainerWidget *parent = 0);
+        Juiz(Wt::WContainerWidget *parent = 0);
         virtual ~Juiz();
 
     private:
-        struct ListaFamilias {
-            Familia *familia;
-            ListaFamilias *proximo;
-        };
+        Familia *listaFamilias;
+
+        Wt::WPushButton *addFamilia_;
+        Wt::WPushButton *delFamilia_;
 
         void adicionarFamilia();
         void excluirFamilia();
-        void buscarCriança();
 };
 
 #endif // JUIZ_H

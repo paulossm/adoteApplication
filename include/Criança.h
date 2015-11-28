@@ -14,6 +14,8 @@ class Criança : public Wt::WContainerWidget
         std::string *sexo;
         int idade;
 
+        Fila* paisPretendentes;
+
         Wt::WLineEdit *name;
         Wt::WButtonGroup *selectSexo;
         Wt::WRadioButton *sexoCrianca;
@@ -21,6 +23,8 @@ class Criança : public Wt::WContainerWidget
         /* Operações com a Criança */
         void salvarDadosCrianca();
         void atualizarDados();
+
+        void buscarCrianca();
 };
 
 

@@ -11,14 +11,21 @@ class Pais : public Wt::WContainerWidget
         virtual ~Pais();
     protected:
     private:
-        struct Localidade{
-            Wt::WText *estado;
-            Wt::WText *cidade;
-            Wt::WText *bairro;
-            Wt::WText *rua;
-            int numero;
-        };
+        std::string nome;
+        std::string sexo;
+        int idade;
 
+        Pais *proximo;
+        Pais *anterior;
+
+        Wt::WLineEdit *nome_;
+        Wt::WRadioButton *sexo_;
+        Wt::WButtonGroup *opcoes_;
+        Wt::WLineEdit *idade_;
+
+        void atribuirGenero();
+        void salvarDadosPai();
+        void atualizarDados();
 };
 
 #endif // PAIS_H

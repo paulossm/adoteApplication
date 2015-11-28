@@ -2,6 +2,8 @@
 #define FAMILIA_H
 
 #include <Wt/WContainerWidget>
+#include "Pais.h"
+#include "Criança.h"
 
 
 class Familia : public Wt::WContainerWidget
@@ -10,14 +12,18 @@ class Familia : public Wt::WContainerWidget
         Familia();
         virtual ~Familia();
     private:
-        struct Membros {
-            std::string nome;
-            std::string parentesco;
-        };
+        Pais *pais;
+        Criança pretendida;
+        std::string sobrenome;
 
-        void novoMembro();
-        void excluirMembro();
-        void atualizarMembros();
+        Familia *proximo;
+        Familia *anterior;
+
+        void cadastrarMembro();
+        void excluirPais();
+        void atualizarFamilia();
+        void atualizarCriancaPretendida();
+        //void listarFamiliares();
 };
 
 #endif // FAMILIA_H
