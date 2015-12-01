@@ -6,7 +6,7 @@
 #include <Wt/WLineEdit>
 #include <Wt/WButtonGroup>
 
-#include "Criança.h"
+#include "headers/Criança.h"
 
 using namespace Wt;
 
@@ -65,3 +65,5 @@ Criança::~Criança()
 {
     //dtor
 }
+
+

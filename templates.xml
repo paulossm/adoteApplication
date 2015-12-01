@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<messages>
+  
+    <message id="App.index">
+    <div class="mainContent col-xs-6 col-xs-offset-3">
+    <h1 class='welcome'>Bem Vindo ao Adote</h1>
+      <div class="panel">
+        <div class="panel-heading">
+            <h3>${action}</h3>
+        </div>
+        <div class="panel-body">
+            <div class='form'>
+                <fieldset class="input-group">
+                    ${profile-1}
+                    ${profile-2}
+                    ${profile-3}
+                </fieldset>
+                ${continue-button}
+            </div>
+        </div>
+      </div>
+    </div>
+    </message>
+    
+    <message id="App.loginForm">
+        <h2>${action}</h2>
+        <div class="form">
+            ${login-form-username}
+            <br />
+            <label>senha:</label>
+            <input type="password" name="passwordField" class="form-control" />            
+            <br />
+            ${login-button}
+        </div>
+    </message>
+    
+    <message id="App.dashboard">
+        <h2>Módulo: ${profile}</h2>
+        <div>
+            ${actions}
+        </div>
+    </message>
+    
+    
+  <message id="Wt.Auth.template.logged-in">
+    <div class="Wt-auth-logged-in">
+      Logged in as <b>${user-name}</b> | ${logout}
+    </div>
+  </message>
+    
+    <message id="App.searchChild">
+        <h2>${action}</h2>
+        <div>
+            ${age-lower}
+            ${age-higher}
+            ${sex}
+            
+            ${search-btn}
+        </div>
+    </message>
+</messages>

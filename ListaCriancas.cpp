@@ -1,7 +1,7 @@
 #include <Wt/WText>
 #include <Wt/WApplication>
 
-#include "ListaCriancas.h"
+#include "headers/ListaCriancas.h"
 
 ListaCriancas::ListaCriancas()
 {
@@ -17,6 +17,9 @@ ListaCriancas::~ListaCriancas()
 }
 
 void ListaCriancas::listarCriancas(ListaCriancas lista){
+    if(!lista){
+
+    }
     ListaCriancas *atual = lista;
     if(atual.crianca == NULL)
         return;
@@ -32,7 +35,7 @@ void ListaCriancas::listarCriancas(ListaCriancas lista){
     }
 }
 
-void ListaCriancas::removerCrianca(ListaCriancas lista, Criança crianca){
+void ListaCriancas::removerCrianca(ListaCriancas *lista ){
     ListaCriancas *cabeca = lista,
     *auxiliar = lista;
 
@@ -47,21 +50,23 @@ void ListaCriancas::removerCrianca(ListaCriancas lista, Criança crianca){
         atual->proximo = atual->proximo->proximo;
     }
 }
-void ListaCriancas::adicionarCrianca(ListaCriancas lista, Criança crianca){
+void ListaCriancas::adicionarCrianca(ListaCriancas *lista){
     if(lista == NULL){
-        WText *erro = new WText("Não foi possível adicionar criança à lista.");
-        return;
+        lista = new ListaCriancas();
+        lista->crianca = new Criança(Adote::window_);
     }
-    ListaCriancas *aux = lista;
-    if(aux->crianca != NULL){
-        while(aux->proximo != NULL)
-            aux = aux->proximo;
-        aux->proximo = new ListaCriancas;
-        if(aux->proximo == NULL){
-            WText *erro = new WText("Não há espaço na memória para inserir a nova criança.");
-            return;
-        }
-        aux->proximo->crianca = &crianca;
-        aux->proximo = NULL;
+    else {
+        ListaCriancas *aux = lista;
+        if(aux->crianca != NULL){
+            while(aux->proximo != NULL)
+                aux = aux->proximo;
+            aux->proximo = new ListaCriancas();
+            if(aux->proximo == NULL){
+                WText *erro = new WText("Não há espaço na memória para inserir a nova criança.");
+                return;
+            }
+            aux->proximo->crianca = new Criança();
+            aux->proximo = NULL;
     }
+
 }

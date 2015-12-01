@@ -28,6 +28,7 @@ class Orfanato : public Wt::WContainerWidget
 
         void salvarDados();
         void atualizarDados();
+        void dashboard();
 
     protected:
         Wt::WLineEdit *nome_;

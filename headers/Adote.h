@@ -1,16 +1,19 @@
-#ifndef ADOTE_H
-#define ADOTE_H
+#ifndef ADOTE_H_INCLUDED
+#define ADOTE_H_INCLUDED
 
+#include <Wt/WApplication>
 #include <Wt/WContainerWidget>
+#include <Wt/WTemplate>
+#include <Wt/WStackedWidget>
+#include <Wt/WAnchor>
 
-#include "Session.h"
+#include "Orfanato.h"
+#include "Juiz.h"
 
 namespace Wt {
   class WStackedWidget;
   class WAnchor;
 }
-
-class Session;
 
 class Adote : public Wt::WContainerWidget
 {
@@ -19,24 +22,23 @@ class Adote : public Wt::WContainerWidget
         virtual ~Adote();
 
     private:
-        Session session_;
         Wt::WButtonGroup *group_;
-        WT::WRadioButton *profile_;
+        Wt::WRadioButton *profile_;
         int profileId_;
 
-        Wt::WStackedWidget *mainStack_;
+
+        Wt::WTemplate *view_;
+        Wt::WStackedWidget *window_;
         Wt::WAnchor *continueAnchor_;
         Wt::WLineEdit *userName_;
 
-        Juiz *userJuiz_;
-        Orfanato *userOrfanato_;
-
         void setUserProfile();
-        void loadFormLogin(int profileId);
+        void processLogin();
+        void loadFormLogin();
         void loadGuestUser();
         void onAuthEvent();
         void loadJuizPage();
         void loadOrfanatoPage();
 };
 
-#endif // ADOTE_H
+#endif // ADOTE_H_INCLUDED

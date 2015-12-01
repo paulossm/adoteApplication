@@ -24,7 +24,7 @@ class Criança : public Wt::WContainerWidget
         void salvarDadosCrianca();
         void atualizarDados();
 
-        void buscarCrianca();
+
 };
 
 

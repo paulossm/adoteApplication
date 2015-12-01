@@ -14,12 +14,17 @@ class Juiz : public Wt::WContainerWidget
 
     private:
         Familia *listaFamilias;
+        CriancaPretendida *caracteristicas;
 
         Wt::WPushButton *addFamilia_;
         Wt::WPushButton *delFamilia_;
+        Wt::WPushButton *SolicitarVinculo_;
+        Wt::WPushButton *buscarCrianca_;
 
         void adicionarFamilia();
         void excluirFamilia();
+        void dashboard(Wt::WContainerWidget *parent = 0);
+        void buscarCrianca();
 };
 
 #endif // JUIZ_H

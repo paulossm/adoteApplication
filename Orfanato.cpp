@@ -1,4 +1,4 @@
-#include "Orfanato.h"
+#include "headers/Orfanato.h"
 
 #include <Wt/WAnchor>
 #include <Wt/WText>
@@ -12,6 +12,8 @@
 #include <Wt/WPushButton>
 #include <Wt/WLineEdit>
 #include <Wt/WString>
+#include <Wt/WTemplate>
+#include <fstream>
 
 using namespace Wt;
 
@@ -48,6 +50,7 @@ void Orfanato::salvarDados(){
     Endereco.bairro->text() = bairro_->valueText();
     Endereco.rua->text() = rua_->valueText();
     Endereco.numero = (int) numero_->valueText(); // Ver isso aqui (string >> int)
+    dashboard();
 }
 
 void Orfanato::atualizarDados(){
@@ -70,6 +73,34 @@ void Orfanato::atualizarDados(){
     Wt::WPushButton *atualizar_ = new Wt::WPushButton("Atualizar");
     atualizar_->clicked().connect(this, &Orfanato::salvarDados);
     Adote::mainStack_->addWidget(atualizar_);
+}
+void Orfanato::dashboard(Wt::WContainerWidget *parent = 0){
+    WTemplate *window = new WTemplate(WString::tr("App.dashboard"));
+    window->bindWidget("profile", new WText("Orfanato"));
+
+    WPushButton *addCrianca = new WPushButton("Cadastrar Criança");
+    addCrianca->clicked().connect(boost::BOOST_BIND(&ListaCriancas::adicionarCrianca, minhasCriancas);
+
+    WPushButton *deleteCrianca = new WPushButton("Excluir Criança");
+    deleteCrianca->clicked().connect(this, &ListaCriancas::removerCrianca);
+
+    window->bindWidget("actions", addCrianca);
+    window->bindWidget("actions", deleteCrianca);
+
+    parent->clear();
+    parent->addWidget(window);
+}
+
+void Orfanato::preservarDados(){
+    fstream database ("criancas/lista.txt", ios::ate, 0);
+    if(!database){
+        new WTemplate(WString::fromUTF8("Não foi possível salvar os dados no banco."));
+    }
+    ListaCriancas *aux = minhasCriancas;
+    while(aux != NULL){
+        database << aux->crianca->nome << " " << aux->crianca->sexo << " " << aux->crianca->idade << endl;
+        aux = aux->proximo;
+    }
 }
 
 Orfanato::~Orfanato()

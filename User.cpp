@@ -1,4 +1,4 @@
-#include "User.h"
+#include "headers/User.h"
 
 #include <Wt/Auth/Dbo/AuthInfo>
 #include <Wt/Dbo/Impl>

@@ -1,4 +1,4 @@
-#include "Familia.h"
+#include "headers/Familia.h"
 
 
 #include <Wt/WText>
@@ -9,11 +9,12 @@ using namespace Wt;
 Familia::Familia()
 {
     Adote::mainStack_->clear();
+
     WText *title_ = new WText("Cadastrando nova família pretendente à adoção.", Adote::mainStack_);
     pais = new Pais;
 
     WText *title_ = new WText("Cadastrando preferências de criança.", Adote::mainStack_);
-    pretendida = new Criança;
+    pretendida = new CriancaPretendida;
 
     proximo = NULL;
 }

@@ -23,7 +23,6 @@ class Familia : public Wt::WContainerWidget
         void excluirPais();
         void atualizarFamilia();
         void atualizarCriancaPretendida();
-        //void listarFamiliares();
 };
 
 #endif // FAMILIA_H

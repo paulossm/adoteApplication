@@ -14,6 +14,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="include" />
+					<Add directory="/home/paulo/Área de Trabalho/PROGRAMMING/LP1/adote" />
 				</Compiler>
 			</Target>
 		</Build>
@@ -21,25 +22,50 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="adote.cpp" />
-		<Unit filename="include/Adote.h" />
-		<Unit filename="include/Criança.h" />
-		<Unit filename="include/Familia.h" />
-		<Unit filename="include/Juiz.h" />
-		<Unit filename="include/ListaCriancas.h" />
-		<Unit filename="include/Orfanato.h" />
-		<Unit filename="include/Pais.h" />
-		<Unit filename="include/Session.h" />
-		<Unit filename="include/User.h" />
-		<Unit filename="src/Adote.cpp" />
-		<Unit filename="src/Criança.cpp" />
-		<Unit filename="src/Familia.cpp" />
-		<Unit filename="src/Juiz.cpp" />
-		<Unit filename="src/ListaCriancas.cpp" />
-		<Unit filename="src/Orfanato.cpp" />
-		<Unit filename="src/Pais.cpp" />
-		<Unit filename="src/Session.cpp" />
-		<Unit filename="src/User.cpp" />
+		<Unit filename="Adote.cpp" />
+		<Unit filename="CriancaPretendida.cpp" />
+		<Unit filename="Criança.cpp" />
+		<Unit filename="DOCS/Documentacao.odt" />
+		<Unit filename="DOCS/Documentacao.pdf" />
+		<Unit filename="Familia.cpp" />
+		<Unit filename="Juiz.cpp" />
+		<Unit filename="ListaCriancas.cpp" />
+		<Unit filename="Orfanato.cpp" />
+		<Unit filename="Pais.cpp" />
+		<Unit filename="README.md" />
+		<Unit filename="adote.layout" />
+		<Unit filename="css/adote.css" />
+		<Unit filename="css/bootstrap-3.3.6-dist.zip" />
+		<Unit filename="css/bootstrap-3.3.6-dist/css/bootstrap-theme.css" />
+		<Unit filename="css/bootstrap-3.3.6-dist/css/bootstrap-theme.css.map" />
+		<Unit filename="css/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" />
+		<Unit filename="css/bootstrap-3.3.6-dist/css/bootstrap-theme.min.css.map" />
+		<Unit filename="css/bootstrap-3.3.6-dist/css/bootstrap.css" />
+		<Unit filename="css/bootstrap-3.3.6-dist/css/bootstrap.css.map" />
+		<Unit filename="css/bootstrap-3.3.6-dist/css/bootstrap.min.css" />
+		<Unit filename="css/bootstrap-3.3.6-dist/css/bootstrap.min.css.map" />
+		<Unit filename="css/bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.eot" />
+		<Unit filename="css/bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.svg" />
+		<Unit filename="css/bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.ttf" />
+		<Unit filename="css/bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.woff" />
+		<Unit filename="css/bootstrap-3.3.6-dist/fonts/glyphicons-halflings-regular.woff2" />
+		<Unit filename="css/bootstrap-3.3.6-dist/js/bootstrap.js" />
+		<Unit filename="css/bootstrap-3.3.6-dist/js/bootstrap.min.js" />
+		<Unit filename="css/bootstrap-3.3.6-dist/js/npm.js" />
+		<Unit filename="css/bootstrap-theme.min.css" />
+		<Unit filename="css/bootstrap.min.css" />
+		<Unit filename="css/font-awesome.min.css" />
+		<Unit filename="headers/Adote.h" />
+		<Unit filename="headers/CriancaPretendida.h" />
+		<Unit filename="headers/Criança.h" />
+		<Unit filename="headers/Familia.h" />
+		<Unit filename="headers/Juiz.h" />
+		<Unit filename="headers/ListaCriancas.h" />
+		<Unit filename="headers/Orfanato.h" />
+		<Unit filename="headers/Pais.h" />
+		<Unit filename="main.cpp" />
+		<Unit filename="obj/Debug/main.o" />
+		<Unit filename="templates.xml" />
 		<Extensions>
 			<code_completion />
 			<debugger />

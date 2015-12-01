@@ -15,7 +15,8 @@ class ListaCriancas
 
         void listarCriancas();
         void removerCrianca();
-        void adicionarCrianca();
+        void adicionarCrianca(ListaCriancas lista);
+        void buscarCrianca(int idade, std::string sexo = "");
 };
 
 #endif // LISTACRIANCAS_H
