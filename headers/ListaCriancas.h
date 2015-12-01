@@ -1,7 +1,7 @@
 #ifndef LISTACRIANCAS_H
 #define LISTACRIANCAS_H
 
-#include "Criança.h"
+#include "Crianca.h"
 
 class ListaCriancas
 {
@@ -10,13 +10,13 @@ class ListaCriancas
         virtual ~ListaCriancas();
 
     private:
-        Criança *crianca;
+        Crianca *crianca;
         ListaCriancas *proximo;
 
         void listarCriancas();
         void removerCrianca();
-        void adicionarCrianca(ListaCriancas lista);
-        void buscarCrianca(int idade, std::string sexo = "");
+        void adicionarCrianca();
+        ListaCriancas* buscarCrianca(int idadeInf = 0, int idadeSup = 0, std::string sexo = "");
 };
 
 #endif // LISTACRIANCAS_H

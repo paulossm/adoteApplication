@@ -1,12 +1,12 @@
 #ifndef CRIANCAPRETENDIDA_H
 #define CRIANCAPRETENDIDA_H
 
-#include "Criança.h"
+#include "Crianca.h"
 
 class CriancaPretendida : public Wt::WContainerWidget
 {
     public:
-        CriancaPretendida(Wt::WContainerWidget *parent);
+        CriancaPretendida(Wt::WContainerWidget *parent = 0);
         virtual ~CriancaPretendida();
 
     private:
@@ -14,6 +14,7 @@ class CriancaPretendida : public Wt::WContainerWidget
         int idadeInf;
         int idadeSup;
 
+        Wt::WStackedWidget *view_;
         Wt::WLineEdit *idadeI;
         Wt::WLineEdit *idadeS;
         Wt::WRadioButton *sexoBtns;

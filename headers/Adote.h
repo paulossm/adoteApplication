@@ -1,5 +1,5 @@
-#ifndef ADOTE_H_INCLUDED
-#define ADOTE_H_INCLUDED
+#ifndef ADOTE_H_
+#define ADOTE_H_
 
 #include <Wt/WApplication>
 #include <Wt/WContainerWidget>
@@ -15,6 +15,9 @@ namespace Wt {
   class WAnchor;
 }
 
+class Juiz;
+class Orfanato;
+
 class Adote : public Wt::WContainerWidget
 {
     public:
@@ -26,19 +29,21 @@ class Adote : public Wt::WContainerWidget
         Wt::WRadioButton *profile_;
         int profileId_;
 
+        Juiz *juiz;
+        Orfanato *orfanato;
 
         Wt::WTemplate *view_;
         Wt::WStackedWidget *window_;
         Wt::WAnchor *continueAnchor_;
         Wt::WLineEdit *userName_;
 
-        void setUserProfile();
+        void setUserProfile(int id);
         void processLogin();
-        void loadFormLogin();
+        void loadFormLogin(int id);
         void loadGuestUser();
-        void onAuthEvent();
         void loadJuizPage();
         void loadOrfanatoPage();
+        void restartApp();
 };
 
-#endif // ADOTE_H_INCLUDED
+#endif // ADOTE_H_

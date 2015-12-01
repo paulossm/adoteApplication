@@ -1,21 +1,23 @@
-#ifndef JUIZ_H
-#define JUIZ_H
+#ifndef JUIZ_H_
+#define JUIZ_H_
 
-#include <Wt/WContainerWidget>
+#include <Wt/WStackedWidget>
 
-#include "Criança.h"
+#include "Crianca.h"
 #include "Familia.h"
+#include "CriancaPretendida.h"
 
-class Juiz : public Wt::WContainerWidget
+class Juiz : public Wt::WStackedWidget
 {
     public:
-        Juiz(Wt::WContainerWidget *parent = 0);
+        Juiz(Wt::WStackedWidget *parent = 0);
         virtual ~Juiz();
 
     private:
         Familia *listaFamilias;
         CriancaPretendida *caracteristicas;
 
+        Wt::WTemplate *view_;
         Wt::WPushButton *addFamilia_;
         Wt::WPushButton *delFamilia_;
         Wt::WPushButton *SolicitarVinculo_;
@@ -23,8 +25,7 @@ class Juiz : public Wt::WContainerWidget
 
         void adicionarFamilia();
         void excluirFamilia();
-        void dashboard(Wt::WContainerWidget *parent = 0);
         void buscarCrianca();
 };
 
-#endif // JUIZ_H
+#endif // JUIZ_H_

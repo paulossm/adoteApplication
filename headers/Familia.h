@@ -1,9 +1,9 @@
-#ifndef FAMILIA_H
-#define FAMILIA_H
+#ifndef FAMILIA_H_
+#define FAMILIA_H_
 
 #include <Wt/WContainerWidget>
 #include "Pais.h"
-#include "Criança.h"
+#include "Crianca.h"
 
 
 class Familia : public Wt::WContainerWidget
@@ -13,7 +13,7 @@ class Familia : public Wt::WContainerWidget
         virtual ~Familia();
     private:
         Pais *pais;
-        Criança pretendida;
+        Crianca pretendida;
         std::string sobrenome;
 
         Familia *proximo;
@@ -25,4 +25,4 @@ class Familia : public Wt::WContainerWidget
         void atualizarCriancaPretendida();
 };
 
-#endif // FAMILIA_H
+#endif // FAMILIA_H_

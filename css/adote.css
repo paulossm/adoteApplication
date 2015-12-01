@@ -1,13 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-size: 12px;
-    color: #444;
-}
-
-h1 {
-    color: #E3FA73;
+    background: url('../img/sky-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }

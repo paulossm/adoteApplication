@@ -1,32 +1,42 @@
 #include "headers/Juiz.h"
+#include "headers/Familia.h"
+#include "headers/CriancaPretendida.h"
 
 #include <Wt/WApplication>
 #include <Wt/WText>
 #include <Wt/WPushButton>
 #include <Wt/WBreak>
-#include <Wt/WContainerWidget>
+#include <Wt/WStackedWidget>
 #include <Wt/WTemplate>
 
 using namespace Wt;
 
-Juiz::Juiz(Wt::WContainerWidget *parent = 0):
-(WContainerWidget (parent))
+Juiz::Juiz(Wt::WStackedWidget *parent):
+WStackedWidget(parent)
 {
     listaFamilias = NULL;
-    WTemplate *window = new WTemplate("App.dashboard");
-    window->bindWidget("profile", "Órgão Juridico");
+    view_ = new WTemplate(WString::tr("App.dashboard"));
+    view_->bindWidget("profile", new WText("Orgao Juridico"));
+
 
     addFamilia_ = new WPushButton("Adicionar Familia");
+    addFamilia_->setStyleClass("btn-block btn btn-primary");
     addFamilia_->clicked().connect(this, &Juiz::adicionarFamilia);
-    window->bindWidget(addFamilia_);
+    view_->bindWidget("action1", addFamilia_);
 
     delFamilia_ = new WPushButton("Excluir Familia");
+    delFamilia_->setStyleClass("btn btn-danger btn-block");
     delFamilia_->clicked().connect(this, &Juiz::excluirFamilia);
-    window->bindWidget(delFamilia_);
+    view_->bindWidget("action2", delFamilia_);
 
-    buscarCrianca_ = new WPushButton("Buscar Criança Por Perfil");
+    buscarCrianca_ = new WPushButton("Buscar Crianca Por Perfil");
+    buscarCrianca_->setStyleClass("btn btn-block");
     buscarCrianca_->clicked().connect(this, &Juiz::buscarCrianca);
-    window->bindWidget(buscarCrianca_);
+    view_->bindWidget("action3", buscarCrianca_);
+
+    parent->clear();
+    parent->addWidget(view_);
+
 }
 Juiz::~Juiz()
 {
@@ -34,53 +44,32 @@ Juiz::~Juiz()
 }
 
 void Juiz::adicionarFamilia(){
-    if(listaFamilias == NULL){
-        listaFamilias = new Familia;
-        Adote::mainStack_->addWidget(new WText("Família cadastrada."));
-    }
-
-    else {
-        // Criar uma familia nova
-        Familia* nova = new Familia;
-        if(nova == NULL)
-            return;
-
-        // Adicionar a lista de familias
-        Familia* auxiliar = listaFamilias;
-        while(auxiliar != NULL)
-            auxiliar = auxiliar->proximo;
-        auxiliar->proximo = nova;
-        nova->anterior = auxiliar;
-    }
+//    if(listaFamilias == NULL){
+//        listaFamilias = new Familia;
+//        Adote::mainStack_->addWidget(new WText("Família cadastrada."));
+//    }
+//
+//    else {
+//        // Criar uma familia nova
+//        Familia* nova = new Familia;
+//        if(nova == NULL)
+//            return;
+//
+//        // Adicionar a lista de familias
+//        Familia* auxiliar = listaFamilias;
+//        while(auxiliar != NULL)
+//            auxiliar = auxiliar->proximo;
+//        auxiliar->proximo = nova;
+//        nova->anterior = auxiliar;
+//    }
 }
 void Juiz::excluirFamilia(){
 
 }
 
-void Juiz::imprimirFamilias(){
-    WContainerWidget *lista = new WContainerWidget(Adote::mainStack_);
-    if(listaFamilias == NULL)
-        lista->addWidget(new WText("Não há cadastros de famílias aptas para a adoção."));
-    else {
-        Familia *auxiliar = listaFamilias;
-        Pais *auxiliares = auxiliar->pais;
-        lista->addWidget(new WText("<h3>Famílias aptas para a adoção:</h3><ul>"));
-        while(auxiliar != NULL){
-            lista->addWidget(new WText("<li><p><strong>" + auxiliar->sobrenome + "</strong></p>"));
-            while(auxApp.searchChildiliares != NULL){
-                lista->addWidget(new WText(auxiliares->nome + " "));
-                auxiliares = auxiliares->proximo;
-            }
-            lista->addWidget(new WText("</li>"))
-            auxiliar = auxiliar->proximo;
-        }
-    }
-}
-
-void Juiz::dashboard(Wt::WContainerWidget *parent = 0){
-    new Juiz();
-}
-
 void Juiz::buscarCrianca(){
-    caracteristicas = new CriancaPretendida();
+//    this->caracteristicas = new CriancaPretendida();
+//    procurarCrianca( caracteristicas->idadeInf, caracteristicas->idadeSup, caracteristicas->sexo);
 }
+
+

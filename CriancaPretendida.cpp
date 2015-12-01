@@ -1,8 +1,15 @@
 #include "headers/CriancaPretendida.h"
 
 #include <Wt/WButtonGroup>
-CriancaPretendida::CriancaPretendida()
+#include <Wt/WStackedWidget>
+#include <Wt/WTemplate>
+#include <Wt/WStackedWidget>
+
+using namespace Wt;
+CriancaPretendida::CriancaPretendida(Wt::WStackedWidget *parent = 0)
 {
+    view_ = new WStackedWidget(parent);
+
     WTemplate *window = new WTemplate("App.searchChild");
     window->bindWidget("action", "Buscar Crianças por Características:");
 
@@ -21,12 +28,15 @@ CriancaPretendida::CriancaPretendida()
 
     WPushButton *buscar = new WPushButton("Buscar");
     buscar->clicked().connect(this, &CriancaPretendida::salvarDados);
+
+    window->bindWidget("search-btn", buscar);
+    view_->addWidget(window);
 }
 
 void CriancaPretendida::salvarDados(){
-    idadeInf = (int) idadeI->valueText();
-    idadeSup = (int) idadeS->valueText();
-    sexoBtns = group->checkedButton();
+    this->idadeInf = (int) idadeI->valueText();
+    this->idadeSup = (int) idadeS->valueText();
+    this->sexoBtns = group->checkedButton();
 }
 
 CriancaPretendida::~CriancaPretendida()

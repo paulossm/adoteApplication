@@ -2,13 +2,14 @@
 #include <Wt/WApplication>
 
 #include "headers/ListaCriancas.h"
+#include "headers/Crianca.h"
+
+using namespace Wt;
 
 ListaCriancas::ListaCriancas()
 {
-    ListaCriancas *temp;
-    temp->crianca = NULL;
-    temp->proximo = NULL;
-    return temp;
+    this->crianca = NULL;
+    this->proximo = NULL;
 }
 
 ListaCriancas::~ListaCriancas()
@@ -16,9 +17,9 @@ ListaCriancas::~ListaCriancas()
     //dtor
 }
 
-void ListaCriancas::listarCriancas(ListaCriancas lista){
+void ListaCriancas::listarCriancas(ListaCriancas *lista){
     if(!lista){
-
+        lista = new ListaCriancas;
     }
     ListaCriancas *atual = lista;
     if(atual.crianca == NULL)
@@ -36,37 +37,41 @@ void ListaCriancas::listarCriancas(ListaCriancas lista){
 }
 
 void ListaCriancas::removerCrianca(ListaCriancas *lista ){
-    ListaCriancas *cabeca = lista,
-    *auxiliar = lista;
-
-    if(lista.crianca == NULL)
-        return;
-    while( auxiliar->proximo != NULL && !Crianca::compararCaracteristicas(atual->proximo.crianca, crianca) ){
-
-    }
-    if(atual->proximo == NULL)
-        Adote::mainStack_->addWidget(new WText("Criança não foi encontrada. não foi possível excluir."));
-    else {
-        atual->proximo = atual->proximo->proximo;
-    }
+//    ListaCriancas *cabeca = lista,
+//    *auxiliar = lista;
+//
+//    if(lista.crianca == NULL)
+//        return;
+//    while( auxiliar->proximo != NULL && !Crianca::compararCaracteristicas(atual->proximo.crianca, crianca) ){
+//
+//    }
+//    if(atual->proximo == NULL)
+//        Adote::mainStack_->addWidget(new WText("Criança não foi encontrada. não foi possível excluir."));
+//    else {
+//        atual->proximo = atual->proximo->proximo;
+//    }
 }
-void ListaCriancas::adicionarCrianca(ListaCriancas *lista){
-    if(lista == NULL){
-        lista = new ListaCriancas();
-        lista->crianca = new Criança(Adote::window_);
+void ListaCriancas::adicionarCrianca(){
+    Crianca* temp = new Crianca::Crianca();
+    ListaCriancas *aux = this;
+    while(aux->proximo != NULL){
+        aux = aux->proximo;
     }
-    else {
-        ListaCriancas *aux = lista;
-        if(aux->crianca != NULL){
-            while(aux->proximo != NULL)
-                aux = aux->proximo;
-            aux->proximo = new ListaCriancas();
-            if(aux->proximo == NULL){
-                WText *erro = new WText("Não há espaço na memória para inserir a nova criança.");
-                return;
-            }
-            aux->proximo->crianca = new Criança();
-            aux->proximo = NULL;
-    }
+    aux->proximo->crianca = temp;
+    aux->proximo->proximo = NULL;
+}
 
+ListaCriancas* ListaCriancas::procurarCrianca(int idadeInf = 0, int idadeSup = 0, std::string sexo = ""){
+    fstream database ("criancas/lista.txt", ios::in, 0);
+    if(!database){
+        new WText(WString::fromUTF8("Não foi possível salvar os dados no banco."), window_);
+    }
+    ListaCriancas *resultados = new ListaCriancas;
+    while(!database.eof()){
+
+    }
+    while(aux != NULL){
+        database << aux->crianca->nome << " " << aux->crianca->sexo << " " << aux->crianca->idade << endl;
+        aux = aux->proximo;
+    }
 }

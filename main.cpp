@@ -1,12 +1,10 @@
 /* COMPILATION */
-// g++ main.cpp Adote.cpp -o Template.wt -lwt -lwthttp -lboost_system -lboost_signals
-// ./testing.wt --docroot . --http-address 0.0.0.0 --http-port 9090
+// g++ main.cpp Adote.cpp -o Adote -lwt -lwthttp -lboost_system -lboost_signals
+// ./Adote --docroot . --http-address 0.0.0.0 --http-port 9090
 
 #include <iostream>
-
 #include <Wt/WApplication>
 #include <Wt/WServer>
-
 #include <Wt/WBootstrapTheme>
 #include <Wt/WEnvironment>
 #include <Wt/WHBoxLayout>
@@ -18,12 +16,15 @@
 Wt::WApplication *createApplication(const Wt::WEnvironment& env)
 {
     Wt::WApplication *app = new Wt::WApplication(env);
+
     app->setTitle("Adote");
+
     app->messageResourceBundle().use(app->appRoot() + "templates");
-//    Wt::WBootstrapTheme *bootstrap_ = new Wt::WBootstrapTheme(app);
-//    app->setTheme(bootstrap_);
-    app->useStyleSheet("css/bootstrap.min.css");
-    app->useStyleSheet("css/bootstrap-theme.min.css");
+
+    app->useStyleSheet("css/bootstrap.css");
+    app->useStyleSheet("css/bootstrap-theme.css");
+    app->useStyleSheet("css/adote.css");
+
     new Adote(app->root());
     return app;
 }

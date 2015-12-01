@@ -16,7 +16,6 @@ class Pais : public Wt::WContainerWidget
         int idade;
 
         Pais *proximo;
-        Pais *anterior;
 
         Wt::WLineEdit *nome_;
         Wt::WRadioButton *sexo_;

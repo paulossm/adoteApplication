@@ -1,36 +1,27 @@
-#ifndef ORFANATO_H
-#define ORFANATO_H
+#ifndef ORFANATO_H_
+#define ORFANATO_H_
 
-#include <Wt/WContainerWidget>
-#include "Criança.h"
-#include "Familia.h"
+#include <Wt/WStackedWidget>
+#include <Wt/WTemplate>
 
-class Orfanato : public Wt::WContainerWidget
+#include "ListaCriancas.h"
+
+class Orfanato : public Wt::WStackedWidget
 {
     public:
-        Orfanato(Wt::WContainerWidget *parent = 0);
+        Orfanato(Wt::WStackedWidget *parent = 0);
         virtual ~Orfanato();
 
     private:
-        Wt::WText *nome;
-
-        struct Endereco {
-            Wt::WText *estado;
-            Wt::WText *cidade;
-            Wt::WText *bairro;
-            Wt::WText *rua;
-            int numero;
-        };
-
         ListaCriancas *minhasCriancas;
 
-        void registrarAdoção(Criança *criança, Familia *pais);
+        void cadastrarCrianca();
+        void excluirCrianca();
+        void listarCriancas();
 
-        void salvarDados();
-        void atualizarDados();
-        void dashboard();
 
     protected:
+        Wt::WTemplate *view_;
         Wt::WLineEdit *nome_;
         Wt::WLineEdit *estado_;
         Wt::WLineEdit *cidade_;
@@ -40,4 +31,4 @@ class Orfanato : public Wt::WContainerWidget
 
 };
 
-#endif // ORFANATO_H
+#endif // ORFANATO_H_
